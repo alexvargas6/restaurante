@@ -18,6 +18,7 @@ class CreateMenusTable extends Migration
             $table->string('nombre');
             $table->decimal('precio');
             $table->string('ingredientes');
+            $table->string('foto');
             $table->foreignId('tipo')->constrained('platillos')->nullable();
             $table->timestamps();
         });

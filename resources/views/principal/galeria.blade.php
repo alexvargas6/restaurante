@@ -2,7 +2,7 @@
 
     <div class="container" data-aos="fade-up">
         <div class="section-title">
-            <h2>Gallery</h2>
+            <h2>Galeria</h2>
             <p>Algunas fotos de Nuestro Restaurante</p>
         </div>
     </div>
