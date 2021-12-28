@@ -55,8 +55,8 @@
                             </li>
                             @if (Route::has('register'))
                                 <!--<li class="nav-item">
-                                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                                    </li>-->
+                                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                        </li>-->
                             @endif
                         @else
                             <li class="nav-item dropdown">
@@ -66,8 +66,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                         document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -92,16 +93,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- jQuery UI -->
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <link href="{{ asset('administrador/vendors/datatables/dataTables.bootstrap.css') }}" rel="stylesheet"
-        media="screen">
-    <script src="{{ asset('administrador/bootstrap/js/bootstrap.min.js') }}"></script>
-
-    <script src="{{ asset('administrador/vendors/datatables/js/jquery.dataTables.min.js') }}"></script>
-
-    <script src="{{ asset('administrador/vendors/datatables/dataTables.bootstrap.js') }}"></script>
-
-    <script src="administrador/js/custom.js"></script>
-    <script src="administrador/js/tables.js"></script>
 </body>
 
 </html>

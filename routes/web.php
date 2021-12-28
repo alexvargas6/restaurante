@@ -14,18 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/res');
 });
 Route::get('/res', 'menuControl@rest');
-Route::get('/administrar', 'administradorControl@showAdmin');
+Route::get('/administrar', 'administradorControl@showAdmin')->name('usuarios');
+Route::get('/menu', 'administradorControl@showMenu')->name('menu');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
+Route::group(['prefix' => 'api'], function () {
+    Route::post('/categoria/guardar', 'platillosControl@agregarCat')->name('addCat');
+    Route::post('/alimento/guardar', 'platillosControl@addAlimento')->name('addAlimento');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
