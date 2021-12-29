@@ -27,4 +27,8 @@ class administradorControl extends Controller
         return view('administrador.menu', ['menu' => $menu, 'cat' => $cat]);
     }
 
+    public function showAbout()
+    {
+        return view('administrador.aboutEdit');
+    }
 }

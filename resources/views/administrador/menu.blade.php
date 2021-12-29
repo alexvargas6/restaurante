@@ -36,6 +36,7 @@
                             <th>TIPO</th>
                             <th>REGISTRO</th>
                             <th>FOTO</th>
+                            <th>ELIMINAR</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -47,6 +48,7 @@
                             <th>TIPO</th>
                             <th>REGISTRO</th>
                             <th>FOTO</th>
+                            <th>ELIMINAR</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -60,6 +62,14 @@
                                 <td>{{ $comida->created_at }}</td>
                                 <td><img src="{{ asset($comida->foto) }}" alt="{{ $comida->nombre }}"
                                         class="img-fluid img-thumbnail" width="120"></td>
+                                <td>
+                                    <form action="{{ route('eliminarMenu', $comida->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        @method('DELETE')
+                                        <button onclick="return confirm('¿Esta seguro de querer eliminar?')"
+                                            class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

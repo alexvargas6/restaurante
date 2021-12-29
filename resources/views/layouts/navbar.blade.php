@@ -139,7 +139,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>INFORMACIÓN INTERFAZ</span></a>
             </li>
 
             <!-- Divider -->
@@ -277,8 +277,8 @@
                                  Counter - Messages 
                                 <span class="badge badge-danger badge-counter">7</span>
                             </a>-->
-                            <!-- Dropdown - Messages -->
-                            <!--<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                        <!-- Dropdown - Messages -->
+                        <!--<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
                                     Message Center
@@ -338,13 +338,14 @@
                             </div>
                         </li>-->
 
-                            <div class="topbar-divider d-none d-sm-block"></div>
+                        <div class="topbar-divider d-none d-sm-block"></div>
 
-                            <!-- Nav Item - User Information -->
+                        <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle"
                                     src="startbootstrap-sb-admin-2-gh-pages/img/undraw_profile.svg">
                             </a>

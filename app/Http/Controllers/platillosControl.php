@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Validator;
@@ -79,7 +80,7 @@ class platillosControl extends Controller
                 $comida = new menu();
                 if ($request->hasFile('foto')) {
                     $file = $request->file('foto');
-                    $url = 'assets/img/comida/';
+                    $url = 'assets/img/menu/';
                     $filename = time() . '-' . $file->getClientOriginalName();
                     $filename = Str::camel($filename);
                     $upload = $request->file('foto')->move($url, $filename);
@@ -91,12 +92,25 @@ class platillosControl extends Controller
                 $comida->precio = $request->precio;
                 $comida->ingredientes = $request->ingredientes;
                 $comida->tipo = $request->tipo;
-                $comida->foto = $request->foto;
                 $comida->save();
             } catch (\Exception $e) {
                 dd($e);
             }
             return redirect('menu');
         }
+    }
+    public function delete(Request $request, $id)
+    {
+        try {
+            $comida = menu::find($id);
+
+            File::delete($comida->foto);
+
+            $comida->delete();
+        } catch (\Exception $e) {
+            dd($e);
+            return redirect()->route('menu');
+        }
+        return redirect()->route('menu');
     }
 }

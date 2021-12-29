@@ -12,17 +12,17 @@
                 <div class="modal-body">
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                placeholder="Nombre de la comida" name="nombre">
+                            <input type="text" class="form-control form-control-user" id="nombre"
+                                placeholder="Nombre de la comida" name="nombre" value="{{ old('nombre') }}">
                         </div>
                         <div class="col-sm-6">
-                            <input type="number" class="form-control form-control-user" id="exampleLastName"
-                                placeholder="$ 00.00" name="precio">
+                            <input type="number" class="form-control form-control-user" id="precio"
+                                placeholder="$ 00.00" name="precio" value="{{ old('precio') }}">
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea type="text" class="form-control form-control-user" id="exampleFormControlTextarea1"
-                            rows="3" placeholder="ingredientes, como esta hecho, etc..." name="ingredientes"></textarea>
+                        <textarea type="text" class="form-control form-control-user" id="ingredientes"
+                            rows="3" placeholder="ingredientes, como esta hecho, etc..." value="{{ old('ingredientes') }}" name="ingredientes"></textarea>
                     </div>
                     <div class="form-group">
                         <select name="tipo" class="form-select" aria-label="Default select example">
@@ -34,8 +34,8 @@
                     </div>
                     <div class="form-group">
                         <label for="formFileLg" class="form-label">FOTO DE LA COMIDA</label>
-                        <input name="foto" accept="image/*" class="form-control form-control-lg" id="formFileLg"
-                            type="file">
+                        <input name="foto" accept="image/*" class="form-control form-control-lg" id="foto"
+                            type="file" value="{{ old('foto') }}">
                     </div>
                 </div>
                 <div class="modal-footer">
