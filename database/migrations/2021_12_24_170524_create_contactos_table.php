@@ -18,8 +18,8 @@ class CreateContactosTable extends Migration
             $table->string('direccion')->nullable();
             $table->string('email')->nullable();
             $table->string('telefono')->nullable();
-            $table->date('primer_dia');
-            $table->date('ultimo_dia');
+            $table->string('primer_dia');
+            $table->string('ultimo_dia');
             $table->datetime('apertura');
             $table->datetime('cierra');
             $table->timestamps();

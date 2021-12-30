@@ -11,6 +11,7 @@ use App\whyus;
 use App\testimonio;
 use App\menu;
 use App\platillos;
+use App\especiales;
 
 class menuControl extends Controller
 {
@@ -24,6 +25,7 @@ class menuControl extends Controller
         $test = testimonio::all();
         $menu = menu::all();
         $plato = platillos::all();
+        $espec = especiales::all();
         $responseview = [
             'chef' => $chefs,
             'about' => $about,
@@ -32,7 +34,8 @@ class menuControl extends Controller
             'whyus' => $why,
             'testi' => $test,
             'menu' => $menu,
-            'platillo' => $plato
+            'platillo' => $plato,
+            'espec' => $espec
         ];
         return view('principal.index', $responseview);
     }
