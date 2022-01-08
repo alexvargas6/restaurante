@@ -20,8 +20,9 @@ class CreateContactosTable extends Migration
             $table->string('telefono')->nullable();
             $table->string('primer_dia');
             $table->string('ultimo_dia');
-            $table->datetime('apertura');
-            $table->datetime('cierra');
+            $table->string('apertura');
+            $table->string('cierra');
+            $table->string('direccion');
             $table->timestamps();
         });
     }

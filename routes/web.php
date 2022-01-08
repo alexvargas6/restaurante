@@ -20,6 +20,7 @@ Route::get('/res', 'menuControl@rest');
 Route::get('/administrar', 'administradorControl@showAdmin')->name('usuarios');
 Route::get('/menu', 'administradorControl@showMenu')->name('menu');
 Route::get('/about', 'administradorControl@showAbout')->name('about');
+Route::get('/interfaz', 'administradorControl@showInterfazConfig')->name('interfaz');
 Auth::routes();
 
 Route::group(['prefix' => 'api'], function () {

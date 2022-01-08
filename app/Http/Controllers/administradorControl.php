@@ -31,4 +31,9 @@ class administradorControl extends Controller
     {
         return view('administrador.aboutEdit');
     }
+
+    public function showInterfazConfig()
+    {
+        return view('administrador.interfazConfig');
+    }
 }

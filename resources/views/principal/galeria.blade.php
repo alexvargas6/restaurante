@@ -14,7 +14,7 @@
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
                         <a href="{{ $foto->foto }}" class="gallery-lightbox" data-gall="gallery-item">
-                            <img src="{{ $foto->foto }}" alt="{{ $foto->name }}" class="img-fluid">
+                            <img src="{{ asset($foto->foto) }}" alt="{{ $foto->name }}" class="img-fluid">
                         </a>
                     </div>
                 </div>

@@ -21,6 +21,7 @@
     <link href="administrador/css/sb-admin-2.min.css" rel="stylesheet">
     <!-- Custom styles for this page -->
     <link href="administrador/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    @yield('stilo')
 </head>
 
 <body id="page-top">
@@ -137,7 +138,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="{{ route('interfaz') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>INFORMACIÓN INTERFAZ</span></a>
             </li>
