@@ -27,6 +27,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('/categoria/guardar', 'platillosControl@agregarCat')->name('addCat');
     Route::post('/alimento/guardar', 'platillosControl@addAlimento')->name('addAlimento');
     Route::delete('/alimento/{id}/delete', 'platillosControl@delete')->name('eliminarMenu');
+    Route::post('/update/inter', 'interfazControl@updateAll')->name('upInter');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

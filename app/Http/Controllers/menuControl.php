@@ -13,6 +13,8 @@ use App\menu;
 use App\platillos;
 use App\especiales;
 use App\evento;
+use App\contacto;
+
 
 class menuControl extends Controller
 {
@@ -28,6 +30,7 @@ class menuControl extends Controller
         $plato = platillos::all();
         $espec = especiales::all();
         $eventos = evento::all();
+        $contacto = contacto::find(1);
         $responseview = [
             'chef' => $chefs,
             'about' => $about,
@@ -38,7 +41,8 @@ class menuControl extends Controller
             'menu' => $menu,
             'platillo' => $plato,
             'espec' => $espec,
-            'event' => $eventos
+            'event' => $eventos,
+            'contacto' => $contacto
         ];
         return view('principal.index', $responseview);
     }

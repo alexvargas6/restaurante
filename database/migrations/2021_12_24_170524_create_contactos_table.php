@@ -22,7 +22,9 @@ class CreateContactosTable extends Migration
             $table->string('ultimo_dia');
             $table->string('apertura');
             $table->string('cierra');
-            $table->string('direccion');
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->string('fondo');
             $table->timestamps();
         });
     }

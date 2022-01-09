@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\user;
 use App\menu;
 use App\platillos;
+use App\contacto;
 
 class administradorControl extends Controller
 {
@@ -34,6 +35,7 @@ class administradorControl extends Controller
 
     public function showInterfazConfig()
     {
-        return view('administrador.interfazConfig');
+        $contac = contacto::all();
+        return view('administrador.interfazConfig', ['contacto' => $contac]);
     }
 }
