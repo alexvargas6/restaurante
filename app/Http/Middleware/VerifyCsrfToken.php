@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
        'api/categoria/guardar',
        'api/alimento/guardar',
-       'api/update/inter'
+       'api/update/inter',
+       'api/crear/chef'
     ];
 }

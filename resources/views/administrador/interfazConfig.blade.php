@@ -4,7 +4,59 @@ INTERFAZ CONFIG
 @endsection
 @section('content')
 @section('stilo')
+<style>
+    body {
+        margin: 0px;
+        height: 100vh;
+        background: #1283da;
+    }
 
+    .center {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .form-input {
+        width: 350px;
+        padding: 20px;
+        background: #fff;
+        box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+            3px 3px 7px rgba(94, 104, 121, 0.377);
+    }
+
+    .form-input input {
+        display: none;
+
+    }
+
+    .form-input label {
+        display: block;
+        width: 45%;
+        height: 45px;
+        margin-left: 25%;
+        line-height: 50px;
+        text-align: center;
+        background: #1172c2;
+
+        color: #fff;
+        font-size: 15px;
+        font-family: "Open Sans", sans-serif;
+        text-transform: Uppercase;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .form-input img {
+        width: 100%;
+        display: none;
+
+        margin-bottom: 30px;
+    }
+</style>
 @endsection
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -102,6 +154,22 @@ INTERFAZ CONFIG
                         </select>
                     </div>
                 </div>
+                <hr>
+               <!-- <div class="form-group row">
+                    <div class="col-sm-6">
+                        <h3>IMAGEN DE FONDO</h3>
+                        <div class="center">
+                            <div class="form-input">
+                                <div class="preview">
+                                    <img id="file-ip-1-preview" >
+                                </div>
+                                <label for="file-ip-1">SUBIR IMAGEN</label>
+                                <input name="fondo" value="{{ asset($cont->fondo) }}" type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <button type="submit" class="btn btn-primary">GUARDAR</button>
@@ -134,6 +202,14 @@ INTERFAZ CONFIG
         }
     }
 </script>
+@foreach($contacto as $cont)
+<script>
+     var src = "{{ asset($cont->fondo) }}"
+            var preview = document.getElementById("file-ip-1-preview");
+            preview.src = src;
+            preview.style.display = "block";
+</script>
+@endforeach
 @foreach($contacto as $cont)
 <script>
     var app = new Vue({

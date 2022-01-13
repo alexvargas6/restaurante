@@ -7,6 +7,7 @@ use App\user;
 use App\menu;
 use App\platillos;
 use App\contacto;
+use App\chef;
 
 class administradorControl extends Controller
 {
@@ -37,5 +38,11 @@ class administradorControl extends Controller
     {
         $contac = contacto::all();
         return view('administrador.interfazConfig', ['contacto' => $contac]);
+    }
+
+    public function showChef()
+    {
+        $chefs = chef::all();
+        return view('administrador.adminChef', ['chef' => $chefs]);
     }
 }

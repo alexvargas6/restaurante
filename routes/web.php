@@ -21,6 +21,7 @@ Route::get('/administrar', 'administradorControl@showAdmin')->name('usuarios');
 Route::get('/menu', 'administradorControl@showMenu')->name('menu');
 Route::get('/about', 'administradorControl@showAbout')->name('about');
 Route::get('/interfaz', 'administradorControl@showInterfazConfig')->name('interfaz');
+Route::get('/chef', 'administradorControl@showChef')->name('adminChef');
 Auth::routes();
 
 Route::group(['prefix' => 'api'], function () {
@@ -28,6 +29,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('/alimento/guardar', 'platillosControl@addAlimento')->name('addAlimento');
     Route::delete('/alimento/{id}/delete', 'platillosControl@delete')->name('eliminarMenu');
     Route::post('/update/inter', 'interfazControl@updateAll')->name('upInter');
+    Route::post('/crear/chef', 'chefController@storeChef')->name('chefStore');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\contacto;
 use Validator;
 
@@ -47,7 +48,7 @@ class interfazControl extends Controller
             'apertura.required' => 'A QUE HORA ABRES?',
             'cierre.required' => 'A QUE HORAS CIERRAS?',
             'nombre.required' => 'Es requerido el nombre de la empresa',
-            'descripcion' => 'Es requerida una descripción'
+            'descripcion.required' => 'Es requerida una descripción'
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -60,7 +61,6 @@ class interfazControl extends Controller
             try {
                 if ($this->validarContactos()) {
                     $contac = new contacto();
-
                     $contac->direccion = $request->direccion;
                     $contac->telefono = $request->telefono;
                     $contac->email = $request->email;
@@ -70,13 +70,21 @@ class interfazControl extends Controller
                     $contac->cierra = $request->cierre;
                     $contac->nombre = $request->nombre;
                     $contac->descripcion = $request->descripcion;
+
+                    /*if ($request->hasFile('fondo')) {
+                        $file = $request->file('fondo');
+                        $url = 'fondo/';
+                        $filename = time() . '-' . $file->getClientOriginalName();
+                        $filename = Str::camel($filename);
+                        $upload = $request->file('fondo')->move($url, $filename);
+                        $contac->fondo = $url . $filename;
+                    }*/
+
                     $contac->save();
                     return redirect()->back()->with('success', 'Se creo la información correctamente');
                 } else {
                     $upda = DB::table('contactos')->first();
-
                     $contac = contacto::find($upda->id);
-
                     $contac->direccion = $request->direccion;
                     $contac->telefono = $request->telefono;
                     $contac->email = $request->email;
@@ -86,12 +94,22 @@ class interfazControl extends Controller
                     $contac->cierra = $request->cierre;
                     $contac->nombre = $request->nombre;
                     $contac->descripcion = $request->descripcion;
+
+                    /*if ($request->hasFile('fondo')) {
+                        $file = $request->file('fondo');
+                        $url = 'assets/img/fondo/';
+                        $filename = time() . '-' . $file->getClientOriginalName();
+                        $filename = Str::camel($filename);
+                        $upload = $request->file('fondo')->move($url, $filename);
+                        $contac->fondo = $url . $filename;
+                    }*/
+
                     $contac->save();
 
                     return redirect()->back()->with('success', 'los cambios se guardaron bien');
                 }
             } catch (\Exception $e) {
-                dd($e);
+                return redirect()->back()->with('ERROR', $e);
             }
         }
     }
