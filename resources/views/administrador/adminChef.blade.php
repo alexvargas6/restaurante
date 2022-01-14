@@ -44,6 +44,7 @@ CHEF
                         <th><i class="fab fa-instagram"></i></th>
                         <th><i class="fab fa-linkedin"></i></th>
                         <th>FOTO</th>
+                        <th>ACCIONES</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -56,10 +57,12 @@ CHEF
                         <th><i class="fab fa-instagram"></i></th>
                         <th><i class="fab fa-linkedin"></i></th>
                         <th>FOTO</th>
+                        <th>ACCIONES</th>
                     </tr>
                 </tfoot>
                 <tbody>
                     @foreach ($chef as $chefes)
+                    @include('administrador.chefsModal.editModalChef')
                     <tr>
                         <td>{{ $chefes->id }}</td>
                         <td>{{ $chefes->name }}</td>
@@ -69,6 +72,16 @@ CHEF
                         <td>{{$chefes->instagram}}</td>
                         <td>{{$chefes->linkedin}}</td>
                         <td><img src="{{ asset($chefes->foto) }}" alt="{{ $chefes->name }}" class="img-fluid img-thumbnail" width="240"></td>
+                        <td> <a href="#" data-toggle="modal" data-target="#chef-{{ $chefes->id }}" class="btn btn-primary btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-flag"></i>
+                                </span>
+                                <span class="text">EDITAR</span>
+                            </a>
+                            <hr> <a href="#" class="btn btn-danger btn-circle btn-lg">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -30,6 +30,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::delete('/alimento/{id}/delete', 'platillosControl@delete')->name('eliminarMenu');
     Route::post('/update/inter', 'interfazControl@updateAll')->name('upInter');
     Route::post('/crear/chef', 'chefController@storeChef')->name('chefStore');
+    Route::post('/editae/chef', 'chefController@editChef')->name('chefEdit');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
