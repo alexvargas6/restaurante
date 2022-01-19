@@ -8,6 +8,7 @@ use App\menu;
 use App\platillos;
 use App\contacto;
 use App\chef;
+use App\evento;
 
 class administradorControl extends Controller
 {
@@ -44,5 +45,11 @@ class administradorControl extends Controller
     {
         $chefs = chef::all();
         return view('administrador.adminChef', ['chef' => $chefs]);
+    }
+
+    public function showEvents()
+    {
+        $eventos = evento::all();
+        return view('administrador.eventos', ['evento' => $eventos]);
     }
 }

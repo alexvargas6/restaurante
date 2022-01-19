@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Validator;
@@ -9,6 +10,21 @@ use App\chef;
 
 class chefController extends Controller
 {
+
+    public function deleteChef($id)
+    {
+        try {
+            $chef = chef::find($id);
+
+            File::delete($chef->foto);
+
+            $chef->delete();
+        } catch (\Exception $e) {
+            //dd($e);
+            return redirect()->back()->with('ERROR', $e);
+        }
+        return redirect()->back()->with('success', 'Eliminado correctamente');
+    }
 
     public function editChef(Request $request)
     {

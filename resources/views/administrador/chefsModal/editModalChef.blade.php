@@ -11,6 +11,7 @@
                 <div class="modal-body">
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="hidden" class="form-control form-control-user" id="idChef" value="{{ $chefes->id }}" placeholder="id" name="id">
                             <input type="text" class="form-control form-control-user" id="nombreIdEdit" value="{{ $chefes->name }}" placeholder="Nombre" name="name">
                         </div>
                         <div class="col-sm-6">

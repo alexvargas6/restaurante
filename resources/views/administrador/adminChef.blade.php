@@ -67,10 +67,10 @@ CHEF
                         <td>{{ $chefes->id }}</td>
                         <td>{{ $chefes->name }}</td>
                         <td>{{ $chefes->puesto }}</td>
-                        <td>{{$chefes->facebook}}</td>
-                        <td>{{$chefes->twitter}}</td>
-                        <td>{{$chefes->instagram}}</td>
-                        <td>{{$chefes->linkedin}}</td>
+                        <td> <a href="{{$chefes->facebook}}"> facebook</a></td>
+                        <td> <a href="{{$chefes->twitter}}"> twitter</a></td>
+                        <td> <a href="{{$chefes->instagram}}"> instagram</a></td>
+                        <td> <a href="{{$chefes->linkedin}}"> linkedin</a></td>
                         <td><img src="{{ asset($chefes->foto) }}" alt="{{ $chefes->name }}" class="img-fluid img-thumbnail" width="240"></td>
                         <td> <a href="#" data-toggle="modal" data-target="#chef-{{ $chefes->id }}" class="btn btn-primary btn-icon-split">
                                 <span class="icon text-white-50">
@@ -78,9 +78,12 @@ CHEF
                                 </span>
                                 <span class="text">EDITAR</span>
                             </a>
-                            <hr> <a href="#" class="btn btn-danger btn-circle btn-lg">
-                                <i class="fas fa-trash"></i>
-                            </a>
+                            <hr>
+                            <form action="{{ route('eliminarChef', $chefes->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                @method('DELETE')
+                                <button onclick="return confirm('¿Esta seguro de querer eliminar?')" class="btn btn-danger btn-circle btn-lg"> <i class="fas fa-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

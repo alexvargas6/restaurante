@@ -146,6 +146,12 @@
                     <i class="fas fa-glass-cheers"></i>
                     <span>CHEFS/EMPLEADOS</span></a>
             </li>
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('adminEvents') }}">
+                    <i class="fas fa-calendar-week"></i>
+                    <span>EVENTOS</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
