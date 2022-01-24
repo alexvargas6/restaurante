@@ -66,7 +66,12 @@ EVENTOS
                                     <i class="fas fa-edit"></i>
                                 </span>
                                 <span class="text">EDITAR</span>
-                            </a></td>
+                            </a><hr>
+                            <form action="{{ route('eliminarEvento', $ev->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                @method('DELETE')
+                                <button onclick="return confirm('¿Esta seguro de querer eliminar?')" class="btn btn-danger btn-circle btn-lg"> <i class="fas fa-trash"></i></button>
+                            </form></td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -2,15 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Validator;
 use App\evento;
 
-class eventController extends Controller
-{
+class eventController extends Controller {
 
-    public function editEvento(Request $request)
-    {
+    public function deleteEvento($id) {
+        try {
+            $evento = evento::find($id);
+
+            File::delete($evento->foto);
+
+            $evento->delete();
+        } catch (\Exception $e) {
+            //dd($e);
+            return redirect()->back()->with('ERROR', $e);
+        }
+        return redirect()->back()->with('success', 'Eliminado correctamente');
+    }
+
+    public function editEvento(Request $request) {
         $rules = [
             'idEdit' => 'required|numeric',
             'tipoEdit' => 'required',
@@ -56,8 +69,7 @@ class eventController extends Controller
         }
     }
 
-    public function storeEvent(Request $request)
-    {
+    public function storeEvent(Request $request) {
         $default = "assets/img/chefs/default.jpg";
         $rules = [
             'tipo' => 'required',
@@ -102,4 +114,5 @@ class eventController extends Controller
             return redirect()->back()->with('success', 'Se creo el registro exitosamente');
         }
     }
+
 }
