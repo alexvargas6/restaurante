@@ -18,6 +18,7 @@ class VerifyCsrfToken extends Middleware
         'api/crear/chef',
         'api/editae/chef',
         'api/crear/evento',
-        'api/editar/evento'
+        'api/editar/evento',
+        'api/punto/guardar'
     ];
 }

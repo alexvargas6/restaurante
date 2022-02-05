@@ -9,6 +9,8 @@ use App\platillos;
 use App\contacto;
 use App\chef;
 use App\evento;
+use App\about;
+use App\puntos;
 
 class administradorControl extends Controller
 {
@@ -32,7 +34,9 @@ class administradorControl extends Controller
 
     public function showAbout()
     {
-        return view('administrador.aboutEdit');
+        $puntos = puntos::all();
+        $about = about::find(1);
+        return view('administrador.aboutEdit', ['about' => $about, 'puntos' => $puntos]);
     }
 
     public function showInterfazConfig()

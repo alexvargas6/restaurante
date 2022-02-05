@@ -35,7 +35,9 @@ Route::group(['prefix' => 'api'], function () {
     Route::delete('/chef/{id}/delete', 'chefController@deleteChef')->name('eliminarChef');
     Route::post('/crear/evento', 'eventController@storeEvent')->name('storeEvent');
     Route::post('/editar/evento', 'eventController@editEvento')->name('editarEvent');
-     Route::delete('/evento/{id}/delete', 'eventController@deleteEvento')->name('eliminarEvento');
+    Route::delete('/evento/{id}/delete', 'eventController@deleteEvento')->name('eliminarEvento');
+    Route::delete('/punto/{id}/delete', 'aboutController@deletePunto')->name('eliminarPunto');
+    Route::post('/punto/guardar', 'aboutController@addPunto')->name('guardarPunto'); 
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
