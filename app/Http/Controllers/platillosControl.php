@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Validator;
 use App\platillos;
 use App\menu;
+use App\especiales;
 
 class platillosControl extends Controller
 {
@@ -25,26 +26,20 @@ class platillosControl extends Controller
 
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
-            $respuesta = "warning";
-            $mensaje = "VERIFICA LOS SIGUIENTES CAMPOS: ";
             $errors = $validator->errors();
-            return $errors;
+            return redirect()->back()->with('ERROR', $errors);
         } else {
             try {
                 platillos::create([
                     'platillos' => $request->name,
                 ]);
-                $respuesta = "success";
-                $mensaje = "TODO BIEN";
             } catch (\Exception $e) {
-                $respuesta = "danger";
-                $mensaje = "OCURRIO UN ERROR FATAL";
                 $errors[0] = $e;
-                return $e;
+                return redirect()->back()->with('ERROR', $errors[0]);
             }
         }
 
-        return redirect('menu');
+        return redirect()->back()->with('success', 'Se creo la categoria exitosamente');
     }
 
     public function addAlimento(Request $request)
@@ -74,7 +69,7 @@ class platillosControl extends Controller
             $respuesta = "warning";
             $mensaje = "VERIFICA LOS SIGUIENTES CAMPOS: ";
             $errors = $validator->errors();
-            return redirect('menu');
+            return redirect()->back()->with('ERROR', $errors);
         } else {
             try {
                 $comida = new menu();
@@ -94,9 +89,9 @@ class platillosControl extends Controller
                 $comida->tipo = $request->tipo;
                 $comida->save();
             } catch (\Exception $e) {
-                dd($e);
+                return redirect()->back()->with('ERROR', $e);
             }
-            return redirect('menu');
+            return redirect()->back()->with('success', 'Se creo el platillo exitosamente');
         }
     }
     public function delete(Request $request, $id)
@@ -108,9 +103,40 @@ class platillosControl extends Controller
 
             $comida->delete();
         } catch (\Exception $e) {
-            dd($e);
-            return redirect()->route('menu');
+
+            return redirect()->back()->with('ERROR', $e);
         }
-        return redirect()->route('menu');
+        return redirect()->back()->with('success', 'Se elimino el platillo correctamente');
+    }
+
+    public function especiales(Request $request)
+    {
+        $rules = [
+            'id' => 'required'
+        ];
+        $messages = [
+            'id.required' => 'ESPECIFICA EL NOMBRE'
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            $respuesta = "warning";
+            $mensaje = "VERIFICA LOS SIGUIENTES CAMPOS: ";
+            $errors = $validator->errors();
+            return redirect()->back()->with('ERROR', $errors);
+        }
+        $comida = menu::find($request->id);
+        $esp = new especiales();
+        try {
+            $esp->name = $comida->nombre;
+            $esp->subtitulo = $comida->precio;
+            $esp->descripcion = $comida->ingredientes;
+            $esp->foto = $comida->foto;
+            $esp->save();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('ERROR', $e);
+            // return redirect()->route('menu');
+        }
+        return redirect()->back()->with('success', 'Se añadio el especial correctamente');
     }
 }

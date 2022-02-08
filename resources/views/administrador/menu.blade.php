@@ -3,9 +3,24 @@
     MENÚ
 @endsection
 @section('content')
+    @if (\Session::has('success'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{!! \Session::get('success') !!}</li>
+            </ul>
+        </div>
+    @endif
+    @if (\Session::has('ERROR'))
+        <div class="alert alert-warning">
+            <ul>
+                <li>{!! \Session::get('ERROR') !!}</li>
+            </ul>
+        </div>
+    @endif
     <!-- Modal -->
     @include('administrador.menuModal.modalAlimentos')
     @include('administrador.menuModal.modalCat')
+    @include('administrador.menuModal.especialesModal')
     <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#alimentosModal">
         <span class="icon text-white-50">
             <i class="fas fa-hamburger"></i>
@@ -17,6 +32,12 @@
             <i class="fas fa-folder"></i>
         </span>
         <span class="text">Agregar categoría de alimento</span>
+    </a>
+    <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#especialModal">
+        <span class="icon text-white-50">
+            <i class="fas fa-utensil-fork"></i>
+        </span>
+        <span class="text">Agregar especial</span>
     </a>
     <hr>
     <!-- DataTales Example -->

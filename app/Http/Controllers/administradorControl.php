@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use App\user;
 use App\menu;
 use App\platillos;
+use App\especiales;
 use App\contacto;
 use App\chef;
 use App\evento;
 use App\about;
 use App\puntos;
+use App\whyus;
+use App\galeria;
 
 class administradorControl extends Controller
 {
@@ -29,7 +32,8 @@ class administradorControl extends Controller
     {
         $menu = menu::all();
         $cat = platillos::all();
-        return view('administrador.menu', ['menu' => $menu, 'cat' => $cat]);
+        $espe = especiales::all();
+        return view('administrador.menu', ['menu' => $menu, 'cat' => $cat, 'esp' => $espe]);
     }
 
     public function showAbout()
@@ -55,5 +59,17 @@ class administradorControl extends Controller
     {
         $eventos = evento::all();
         return view('administrador.eventos', ['evento' => $eventos]);
+    }
+
+    public function showWhy()
+    {
+        $why = whyus::all();
+        return view('administrador.whyUsesAdmin', ['whyus' => $why]);
+    }
+
+    public function showGaleria()
+    {
+        $galeria = galeria::all();
+        return view('administrador.galeriaAdmin', ['galeria' => $galeria]);
     }
 }
