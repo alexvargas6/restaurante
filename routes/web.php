@@ -25,6 +25,8 @@ Route::get('/chef', 'administradorControl@showChef')->name('adminChef');
 Route::get('/whyusadmin', 'administradorControl@showWhy')->name('adminWhy');
 Route::get('/eventos', 'administradorControl@showEvents')->name('adminEvents');
 Route::get('/galeria', 'administradorControl@showGaleria')->name('adminGaleria');
+Route::get('/testimonio', 'administradorControl@showTestimonio')->name('adminTestimonio');
+Route::get('/reserva', 'administradorControl@showReserv')->name('reservacionesAdmin');
 Auth::routes();
 
 Route::group(['prefix' => 'api'], function () {
@@ -44,6 +46,10 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('/crear/motivo', 'whyUsControl@añadirMotivo')->name('guardarMotivo');
     Route::delete('/motivo/{id}/delete', 'whyUsControl@delete')->name('eliminarMotivo');
     Route::post('/crear/especial', 'platillosControl@especiales')->name('guardarEspecial');
+    Route::post('/subir/foto', 'controlGaleria@subirFoto')->name('subirFoto');
+    Route::post('/subir/testimonio', 'testimonioControl@addTest')->name('guardarTestimonio');
+    Route::post('/subir/reservacion', 'reservacionControl@addReservacion')->name('reservar');
+    Route::post('/visto/reservacion', 'reservacionControl@ejecutar')->name('ejecutarVisto');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

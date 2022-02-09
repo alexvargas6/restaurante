@@ -6,11 +6,12 @@
             <p>Reservar una mesa</p>
         </div>
 
-        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
+        <form action="{{ route('reservar') }}" method="post" role="form" class="php-email-form" data-aos="fade-up"
             data-aos-delay="100">
             <div class="row">
                 <div class="col-lg-4 col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Nombre"
+                    <input type="hidden" class="form-control" name="retorno" value="0">
+                    <input type="text" name="nombre" class="form-control" id="name" placeholder="Nombre"
                         data-rule="minlen:4" data-msg="Ingrese al menos 4 caracteres">
                     <div class="validate"></div>
                 </div>
@@ -20,29 +21,29 @@
                     <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-                    <input type="text" class="form-control" name="phone" id="phone"
+                    <input type="number" class="form-control" name="telefono" id="phone"
                         placeholder="Tu número de telefono" data-rule="minlen:4"
                         data-msg="Ingrese al menos 4 caracteres">
                     <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6 form-group mt-3">
-                    <input type="text" name="date" class="form-control" id="date" placeholder="Fecha"
+                    <input type="date" name="fecha" class="form-control" id="date" placeholder="Fecha"
                         data-rule="minlen:4" data-msg="Ingrese al menos 4 caracteres">
                     <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6 form-group mt-3">
-                    <input type="text" class="form-control" name="time" id="time" placeholder="Hora"
+                    <input type="time" class="form-control" name="hora" id="time" placeholder="Hora"
                         data-rule="minlen:4" data-msg="Ingrese al menos 4 caracteres">
                     <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6 form-group mt-3">
-                    <input type="number" class="form-control" name="people" id="people" placeholder="# de personas"
+                    <input type="number" class="form-control" name="personas" id="people" placeholder="# de personas"
                         data-rule="minlen:1" data-msg="Ingrese al menos 1 carácter">
                     <div class="validate"></div>
                 </div>
             </div>
             <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                <textarea class="form-control" name="mensaje" rows="5" placeholder="Message"></textarea>
                 <div class="validate"></div>
             </div>
             <div class="mb-3">

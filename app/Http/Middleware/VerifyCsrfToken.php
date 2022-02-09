@@ -22,6 +22,10 @@ class VerifyCsrfToken extends Middleware
         'api/punto/guardar',
         'api/about/guardar',
         'api/crear/motivo',
-        'api/crear/especial'
+        'api/crear/especial',
+        'api/subir/foto',
+        'api/subir/testimonio',
+        'api/subir/reservacion',
+        'api/visto/reservacion'
     ];
 }

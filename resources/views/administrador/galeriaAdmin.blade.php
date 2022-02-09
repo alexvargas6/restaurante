@@ -3,7 +3,6 @@
     FOTOS
 @endsection
 @section('content')
-@section('content')
     @if (\Session::has('success'))
         <div class="alert alert-success">
             <ul>
@@ -18,6 +17,14 @@
             </ul>
         </div>
     @endif
+    @include('administrador.galeriaModal.fotoModal')
+    <a href="#" data-toggle="modal" data-target="#fotoAdd" class="btn btn-info btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-camera"></i>
+        </span>
+        <span class="text">Añadir foto</span>
+    </a>
+    <hr>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">GALERIA</h6>
@@ -43,8 +50,11 @@
                         @foreach ($galeria as $gal)
                             <tr>
                                 <td>{{ $gal->id }}</td>
-                                <td>{{ $gal->nombre }}</td>
-                                <td>{{ $gal->foto }}</td>
+                                <td>{{ $gal->name }}</td>
+                                <td>
+                                    <img src="{{ asset($gal->foto) }}" alt="{{ $gal->name }}"
+                                        class="img-fluid img-thumbnail" width="240">
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
