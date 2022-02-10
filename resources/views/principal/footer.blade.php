@@ -36,7 +36,8 @@
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Página creada por:</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="https://alexvargasproyecto6.go.yj.fr/">Quieres una página igual? click aquí</a>
+                        <li><i class="bx bx-chevron-right"></i> <a href="https://alexvargasproyecto6.go.yj.fr/">Quieres
+                                una página igual? click aquí</a>
                         </li>
                     </ul>
                 </div>
@@ -56,7 +57,7 @@
 
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong><span>Tu restaurante</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Tu restaurante</span></strong>. Todos los derechos reservados
         </div>
         <!--<div class="credits">-->
         <!-- All the links in the footer should remain intact. -->

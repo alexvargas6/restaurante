@@ -10859,7 +10859,7 @@ a:focus {
     height: calc(20rem - 43px) !important;
   }
 }
-
+/*Cambiar aquí*/
 .bg-login-image {
   background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
   background-position: center;
